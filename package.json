@@ -1,0 +1,30 @@
+{
+  "name": "taymor-api",
+  "version": "1.0.0",
+  "description": "api for betteroff costumes",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikiru/taymorserver.git"
+  },
+  "author": "Jeff Winkler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ikiru/taymorserver/issues"
+  },
+  "homepage": "https://github.com/ikiru/taymorserver#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^0.13.2",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
