@@ -10,21 +10,13 @@
 */
 
 
-const sql = require("pg");
-const { cpool } = require("../db");
+import sql from "mysql";
+import { cpool } from "../db";
 
-const graphql = require('graphql')
-const {
-  GraphQLObjectType,
-  GraphQLString,
-  GraphQLInt,
-  GraphQLFloat,
-  GraphQLBoolean,
-  GraphQLInputObjectType,
-  GraphQLList
-} = require("graphql");
+import graphql from "graphql";
+import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLFloat, GraphQLBoolean, GraphQLInputObjectType, GraphQLList } from "graphql";
 
-export const Colors = new GraphQLObjectType({
+ export const Colors = new GraphQLObjectType({
   name: 'Colors',
   description: 'The primary and seconday color of the costume',
   fields: {

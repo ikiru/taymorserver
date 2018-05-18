@@ -1,61 +1,64 @@
-const express = require( "express");
-const bodyParser = require ("body-parser");
-const graphqlHTTP = require("express-graphql");
-const schema =require("./graphql/schemas");
-const mysql = require("mysql");
+import express from "express";
+import { json } from "body-parser";
+import graphqlHTTP from "express-graphql";
+import schema from "./graphql/schemas";
+import mysql from "mysql";
 
-var {buidSchema} = require('graphql');
+import { buidSchema } from "graphql";
 
 var app = express();
 
 
-app.use(bodyParser.json());
+// app.use(json());
 
 
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Pepper00~~',
-  database: 'Taymor',
 
-});
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true,
+}));
 
 // // The GraphQL endpoint
-app.use(
-  "/graphql",
-  (req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-    );
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "X-Requested-With, content-type, secret, token"
-    );
+// app.use(
+//   "/graphql",
+//   (req, res, next) => {
+//     res.setHeader("Access-Control-Allow-Origin", "*");
+//     res.setHeader(
+//       "Access-Control-Allow-Methods",
+//       "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+//     );
+//     res.setHeader(
+//       "Access-Control-Allow-Headers",
+//       "X-Requested-With, content-type, secret, token"
+//     );
 
-    if (req.method === "OPTIONS") {
-      res.sendStatus(200);
-    } else {
-      next();
-    }
-  },
-  graphqlHTTP( async request => ({
-    schema: await schema(request.headers),
-    graphiql: false
-  }))
-);
+//     if (req.method === "OPTIONS") {
+//       res.sendStatus(200);
+//     } else {
+//       next();
+//     }
+//   },
+//   graphqlHTTP( async request => ({
+//     schema: await schema(request.headers),
+//     graphiql: false
+//   }))
+// );
 
-connection.connect(function(error){
-  if(!!error){
-    console.log('Error');
-  }else{
-    console.log('I can hear you scream on port ')
-  }
-})
+// connection.connect(function(error){
+//   if(!!error){
+//     console.log('Error');
+//   }else{
+//     console.log('I can hear you scream on port ')
+//   }
+// })
 
 app.get('/', function(req,resp){
 
 });
 
-app.listen(1337);
+app.listen(5000, () => {
+  console.log(
+    "I can hear you scream on port localhost:5000/graphql. \nUse localhost:9005/graphiql to run queries"
+  );
+});
