@@ -4,19 +4,16 @@ import graphqlHTTP from "express-graphql";
 import schema from "./graphql/schemas";
 import mysql from "mysql";
 
-import { buidSchema } from "graphql";
+// import { buidSchema } from "graphql";
 
-var app = express();
-
-
-// app.use(json());
-
+const app = express();
 
 
 app.use('/graphql', graphqlHTTP({
   schema: schema,
-  rootValue: root,
-  graphiql: true,
+  rootValue: global,
+  pretty: true,
+  graphiql: true
 }));
 
 // // The GraphQL endpoint
@@ -45,20 +42,12 @@ app.use('/graphql', graphqlHTTP({
 //   }))
 // );
 
-// connection.connect(function(error){
-//   if(!!error){
-//     console.log('Error');
-//   }else{
-//     console.log('I can hear you scream on port ')
-//   }
-// })
-
 app.get('/', function(req,resp){
 
 });
 
 app.listen(5000, () => {
   console.log(
-    "I can hear you scream on port localhost:5000/graphql. \nUse localhost:9005/graphiql to run queries"
+    "I can hear you scream on port 5000/graphql. \nRun your godforsaken quires on localhost:5000/graphiql you heathen"
   );
 });

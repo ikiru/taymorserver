@@ -1,11 +1,11 @@
 /*
   BetterOff Productions
-  Notes - 
+  Notes -
 
   created - Jeff Winkler  05/17/2018
 
 ***********************************************************************
-  modified - 
+  modified -
 
 */
 
@@ -16,7 +16,7 @@ import { cpool } from "../db";
 import graphql from "graphql";
 import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLFloat, GraphQLBoolean, GraphQLInputObjectType, GraphQLList } from "graphql";
 
- export const Colors = new GraphQLObjectType({
+export const Colors = new GraphQLObjectType({
   name: 'Colors',
   description: 'The primary and seconday color of the costume',
   fields: {
