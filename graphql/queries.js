@@ -1,8 +1,8 @@
-const pg = require("pg");
-const {cpool} = require("../db");
+import mysql from "mysql";
+import { cpool } from "../db";
 
-const {GraphQLObjectType, GraphQLList, GraphQLInt, GraphQLString} = require("graphql");
-const { Colors } = require("./schema.js");
+import { GraphQLObjectType, GraphQLList, GraphQLInt, GraphQLString } from "graphql";
+import { Colors } from "./schema.js";
 // import { } from "./enums";
 // const { } = require("../enums/enums");
 
